@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Передзамовлення EEG-гарнітури | Нейрофідбек</title>
     
-    <!-- GoatCounter Analytics -->
-    <script data-goatcounter="https://pre-order.goatcounter.com/count"
-            async src="//gc.zgo.at/count.js"
-            onerror="console.log('GoatCounter script failed to load')"></script>
+    <!-- GoatCounter Analytics (завантажується динамічно, щоб уникнути помилок від adblocker) -->
+    <script>
+        // Завантажуємо GoatCounter тільки якщо не заблокований
+        (function() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = '//gc.zgo.at/count.js';
+            script.setAttribute('data-goatcounter', 'https://pre-order.goatcounter.com/count');
+            script.onerror = function() {
+                // Тихо ігноруємо помилку завантаження (adblocker)
+            };
+            document.head.appendChild(script);
+        })();
+    </script>
     
     <style>
         /* ===== RESET & BASE ===== */
