@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Передзамовлення EEG-гарнітури | Нейрофідбек</title>
+    <title>Дякуємо за передзамовлення | Нейрофідбек</title>
     
-    <!-- Plausible Analytics -->
-    <script defer data-domain="meditate-eeg.github.io/pre-order" src="https://plausible.io/js/script.js"></script>
+    <!-- GoatCounter Analytics -->
+    <script data-goatcounter="https://pre-order.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
     
     <style>
-        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -19,62 +19,73 @@
         :root {
             --color-primary: #008080;
             --color-primary-light: #00A0A0;
-            --color-primary-dark: #006666;
             --color-cta: #FF6B6B;
-            --color-cta-hover: #FF5252;
             --color-text: #2C3E50;
             --color-text-light: #5a6c7d;
-            --color-bg-light: #E8ECF0;
             --color-white: #FFFFFF;
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 0.75rem;
             --spacing-md: 1.25rem;
             --spacing-lg: 2rem;
             --spacing-xl: 3rem;
             --border-radius: 12px;
-            --shadow: 0 2px 8px rgba(0, 128, 128, 0.08);
-            --shadow-lg: 0 8px 24px rgba(0, 128, 128, 0.12);
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
             color: var(--color-text);
             line-height: 1.7;
-            background-color: var(--color-white);
+            background: linear-gradient(160deg, #006666 0%, #008080 30%, #00B8B8 60%, #b8e8e8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
         }
 
-        /* ===== TYPOGRAPHY ===== */
+        .thanks-container {
+            background-color: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .thanks-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-lg);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 2.5rem;
+        }
+
         h1 {
             font-size: 2rem;
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.3;
             margin-bottom: var(--spacing-md);
-        }
-
-        h3 {
-            font-size: 1.35rem;
-            font-weight: 600;
-            margin-bottom: var(--spacing-xs);
+            color: var(--color-text);
         }
 
         p {
-            margin-bottom: var(--spacing-sm);
             color: var(--color-text-light);
-            font-size: 1rem;
+            font-size: 1.05rem;
+            margin-bottom: var(--spacing-md);
         }
 
-        /* ===== BUTTONS ===== */
+        .product-info {
+            background-color: #F8F9FA;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
         .btn {
             display: inline-block;
             padding: 0.875rem 1.75rem;
@@ -85,7 +96,7 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            text-align: center;
+            margin-top: var(--spacing-md);
         }
 
         .btn-primary {
@@ -94,15 +105,15 @@
         }
 
         .btn-primary:hover {
-            background-color: var(--color-cta-hover);
+            background-color: #FF5252;
             transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
         }
 
         .btn-secondary {
             background-color: transparent;
             color: var(--color-primary);
             border: 2px solid var(--color-primary);
+            margin-left: var(--spacing-md);
         }
 
         .btn-secondary:hover {
@@ -110,790 +121,55 @@
             color: var(--color-white);
         }
 
-        /* ===== CONTAINER & SECTIONS ===== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-        }
-
-        section {
-            padding: var(--spacing-xl) 0;
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            background: linear-gradient(160deg, #006666 0%, #008080 30%, #00B8B8 60%, #b8e8e8 100%);
-            padding: var(--spacing-xl) 0;
-            position: relative;
-            overflow: visible;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.15) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero-text h1 {
-            color: var(--color-white);
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.15);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .hero-text .hero-subtitle {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.6;
-        }
-
-        .hero-bullets {
-            list-style: none;
-            margin: var(--spacing-lg) 0;
-            text-align: left;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-bullets li {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 1.05rem;
-            padding: var(--spacing-sm) 0;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .hero-bullets li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        /* ===== HOW IT WORKS ===== */
-        .how-it-works {
-            background-color: #F8F9FA;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
-        }
-
-        .step {
-            text-align: center;
-            padding: var(--spacing-lg);
-            background: var(--color-white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            transition: transform 0.25s ease;
-        }
-        .step:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .step-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto var(--spacing-md);
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-white);
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            color: var(--color-white);
-            border-radius: 50%;
-            line-height: 32px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        /* ===== PRICING / FORMATS ===== */
-        .pricing {
-            background-color: var(--color-white);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
-        }
-
-        .pricing-card {
-            background-color: var(--color-white);
-            border: 2px solid var(--color-bg-light);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-lg);
-            position: relative;
-            box-shadow: var(--shadow);
-            transition: all 0.25s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        .pricing-card:hover {
-            border-color: var(--color-primary);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
-        }
-
-        .pricing-card h3 {
-            color: var(--color-text);
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.5rem;
-        }
-
-        .pricing-card .for-who {
-            color: var(--color-text-light);
-            font-size: 0.95rem;
-            margin-bottom: var(--spacing-md);
-            font-style: italic;
-        }
-
-        .features-list {
-            list-style: none;
-            margin: var(--spacing-md) 0;
-            flex-grow: 1;
-        }
-
-        .features-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            font-size: 0.95rem;
-            color: var(--color-text-light);
-        }
-
-        .features-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--color-primary);
-            font-weight: 700;
-        }
-
-        .pricing-info {
-            background-color: #F8F9FA;
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            margin: var(--spacing-md) 0;
-            font-size: 0.9rem;
-            color: var(--color-text-light);
-        }
-
-        .pricing-price {
-            font-size: 0.95rem;
-            color: var(--color-text-light);
-            margin: var(--spacing-md) 0;
-            padding: var(--spacing-sm);
-            background-color: #F8F9FA;
-            border-radius: var(--border-radius);
-        }
-
-        .pricing-card .btn {
-            width: 100%;
-            margin-top: auto;
-            padding-top: var(--spacing-md);
-            padding-bottom: var(--spacing-md);
-        }
-
-        /* ===== FAQ ===== */
-        .faq {
-            background-color: #F8F9FA;
-        }
-
-        .faq-item {
-            background-color: var(--color-white);
-            border: 1px solid var(--color-bg-light);
-            border-radius: var(--border-radius);
-            margin-bottom: var(--spacing-sm);
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: var(--spacing-md);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: background-color 0.2s ease;
-        }
-
-        .faq-question:hover {
-            background-color: #F8F9FA;
-        }
-
-        .faq-answer {
-            padding: 0 var(--spacing-md) var(--spacing-md);
-            display: none;
-            color: var(--color-text-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .faq-answer.active {
-            display: block;
-        }
-
-        /* ===== MODAL ===== */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-md);
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background-color: var(--color-white);
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            max-width: 500px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: var(--spacing-md);
-            right: var(--spacing-md);
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--color-text-light);
-            line-height: 1;
-            padding: 0;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-close:hover {
-            color: var(--color-text);
-        }
-
-        .form-group {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: var(--spacing-xs);
-            font-weight: 600;
-            color: var(--color-text);
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 0.875rem;
-            border: 2px solid var(--color-bg-light);
-            border-radius: var(--border-radius);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--color-primary);
-        }
-
-        .form-group input.error {
-            border-color: var(--color-cta);
-        }
-
-        .error-message {
-            color: var(--color-cta);
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
-            display: none;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
-        .form-group .required {
-            color: var(--color-cta);
-        }
-
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.75rem;
             }
 
-            h2 {
-                font-size: 1.5rem;
+            .thanks-container {
+                padding: var(--spacing-lg);
             }
 
-            .hero-text h1 {
-                font-size: 2rem;
+            .btn {
+                display: block;
+                width: 100%;
+                margin-left: 0;
+                margin-top: var(--spacing-sm);
             }
-
-            .hero-text .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            section {
-                padding: var(--spacing-lg) 0;
-            }
-
-            .steps,
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-sm);
-            }
-
-            .container {
-                padding: 0 var(--spacing-sm);
-            }
-        }
-
-        /* Приховане поле для захисту від спаму */
-        .honeypot {
-            position: absolute;
-            left: -9999px;
-            opacity: 0;
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>EEG‑гарнітура + нейрофідбек: тренування мозку для медитації, стресу та уваги дітей</h1>
-                    <p class="hero-subtitle">Навчіться керувати станом мозку за допомогою реального зворотного зв'язку. Перший пристрій такого типу українською мовою.</p>
-                    <ul class="hero-bullets">
-                        <li>Реальний сигнал мозку, а не просто музика</li>
-                        <li>Короткі сесії 10–15 хвилин</li>
-                        <li>Перший пристрій такого типу українською</li>
-                        <li>Безпечний неінвазивний біофідбек</li>
-                    </ul>
-                    <a href="#formats" class="btn btn-primary">Обрати свій формат</a>
-                </div>
-            </div>
+    <div class="thanks-container">
+        <div class="thanks-icon">✓</div>
+        <h1>Дякуємо за передзамовлення!</h1>
+        <p>Ви в списку раннього доступу.</p>
+        <div class="product-info" id="productInfo">
+            Коли будемо запускати пілотну програму, ми з вами зв'яжемося.
         </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <h2 style="text-align: center;">Як це працює</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-icon">1</div>
-                    <h3>Вдягаєте EEG‑гарнітуру</h3>
-                    <p>Надіньте гарнітуру з сенсорами, які зчитують електричну активність мозку безболісно та безпечно.</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">2</div>
-                    <h3>Запускаєте застосунок на телефоні</h3>
-                    <p>Виберіть режим: медитація, антистрес або ігри для дітей. Все українською мовою.</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">3</div>
-                    <h3>Отримуєте живий зворотний зв'язок</h3>
-                    <p>Бачте, як змінюються хвилі мозку у вигляді звуку, гри або візуальних індикаторів у реальному часі.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing / Formats -->
-    <section class="pricing" id="formats">
-        <div class="container">
-            <h2 style="text-align: center;">Обери свій формат</h2>
-            <div class="pricing-grid">
-                <!-- Meditation -->
-                <div class="pricing-card">
-                    <h3>Глибока медитація (Шаматха)</h3>
-                    <p class="for-who">Для тих, хто вже медитує і хоче глибше</p>
-                    <ul class="features-list">
-                        <li>Живий нейрофідбек під час медитації</li>
-                        <li>Статистика прогресу та зміни стану</li>
-                        <li>Покрокові інструкції українською</li>
-                    </ul>
-                    <div class="pricing-info">
-                        Пілотна програма 4 тижні, 3–5 сесій на тиждень
-                    </div>
-                    <div class="pricing-price">
-                        Орієнтовно: гарнітура ~100 USD + підписка ~8 USD/міс<br>
-                        <strong>Передзамовники отримають кращі умови</strong>
-                    </div>
-                    <button class="btn btn-primary" onclick="openPreorderModal('meditation')">Передзамовити медитацію</button>
-                </div>
-
-                <!-- Stress -->
-                <div class="pricing-card">
-                    <h3>Стрес і ментальна стійкість для дорослих</h3>
-                    <p class="for-who">Для людей у хронічному стресі, вигорянні або після травматичного досвіду</p>
-                    <ul class="features-list">
-                        <li>Короткі вправи на 3–7 хвилин</li>
-                        <li>Тренування здатності розслаблятися</li>
-                        <li>Відстеження змін рівня стресу</li>
-                    </ul>
-                    <div class="pricing-info">
-                        Пілотна програма 4 тижні, 3–5 сесій на тиждень
-                    </div>
-                    <div class="pricing-price">
-                        Орієнтовно: гарнітура ~100 USD + підписка ~8 USD/міс<br>
-                        <strong>Передзамовники отримають кращі умови</strong>
-                    </div>
-                    <button class="btn btn-primary" onclick="openPreorderModal('stress')">Передзамовити антистрес</button>
-                </div>
-
-                <!-- Kids -->
-                <div class="pricing-card">
-                    <h3>Ігрові тренування уваги для дітей</h3>
-                    <p class="for-who">Для дітей 8–14 років, яким важко концентруватися</p>
-                    <ul class="features-list">
-                        <li>Ігрові сесії, що продовжуються з часом</li>
-                        <li>Миттєвий зворотний зв'язок через зміни в грі</li>
-                        <li>Простий кабінет для батьків з прогресом</li>
-                    </ul>
-                    <div class="pricing-info">
-                        Пілотна програма 4 тижні, 3–5 сесій на тиждень
-                    </div>
-                    <div class="pricing-price">
-                        Орієнтовно: гарнітура ~100 USD + підписка ~8 USD/міс<br>
-                        <strong>Передзамовники отримають кращі умови</strong>
-                    </div>
-                    <button class="btn btn-primary" onclick="openPreorderModal('kids')">Передзамовити для дитини</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-        <div class="container">
-            <h2 style="text-align: center;">Часті питання</h2>
-            <div style="max-width: 800px; margin: 0 auto; margin-top: var(--spacing-lg);">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Це медичний пристрій?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Ні, це інструмент для тренування уваги й регуляції, не діагностує і не лікує. Система допомагає навчитися керувати станом мозку, але не замінює терапію чи медикаменти. Якщо у вас є серйозні проблеми зі здоров'ям, обов'язково зверніться до фахівців.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Коли стартує пілот?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Орієнтовно в наступному кварталі. Точну дату ми повідомимо всім, хто залишив передзамовлення, найближчим часом.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Що, якщо передзамовлення не стартує?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Нічого не сплачуєте зараз. Ми просто запрошуємо перших на тест. Якщо проект не стартує, ви нічого не втрачаєте — ми просто не зв'яжемося з вами.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Це безпечно для дітей?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Так, пристрій неінвазивний, зчитує сигнали з поверхні шкіри, як інші споживчі EEG-пристрої. Він не передає електричний струм у мозок, а лише зчитує природну електричну активність. Рекомендований вік — від 7 років.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Preorder Modal -->
-    <div id="preorderModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closePreorderModal()">&times;</button>
-            <h2>Передзамовлення</h2>
-            <p style="margin-bottom: var(--spacing-md); color: var(--color-text-light);" id="modalProductInfo"></p>
-            <form id="preorderForm" action="https://formsubmit.co/test@example.com" method="POST" onsubmit="handlePreorderSubmit(event)">
-                <!-- Honeypot для захисту від спаму -->
-                <input type="text" name="_honeypot" class="honeypot" tabindex="-1" autocomplete="off">
-                
-                <!-- Hidden поля для Formsubmit -->
-                <input type="hidden" name="_next" value="thanks.html">
-                <input type="hidden" name="_subject" id="formSubject" value="Передзамовлення">
-                <input type="hidden" name="productType" id="productType" value="">
-                
-                <div class="form-group">
-                    <label for="name">Ім'я <span class="required">*</span></label>
-                    <input type="text" id="name" name="name" required>
-                    <div class="error-message" id="nameError">Будь ласка, введіть ваше ім'я</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Телефон <span class="required">*</span></label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+380XXXXXXXXX">
-                    <div class="error-message" id="phoneError">Будь ласка, введіть коректний номер телефону</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required placeholder="example@email.com">
-                    <div class="error-message" id="emailError">Будь ласка, введіть коректний email</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="contactPreference">Як зручніше зв'язатися? (необов'язково)</label>
-                    <select id="contactPreference" name="contactPreference">
-                        <option value="">-- Оберіть --</option>
-                        <option value="telegram">Telegram</option>
-                        <option value="viber">Viber</option>
-                        <option value="phone">Телефон</option>
-                        <option value="email">Email</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Підтвердити передзамовлення</button>
-            </form>
+        <p style="font-size: 0.95rem; color: var(--color-text-light);">
+            Ми надішлемо вам деталі на вказаний email або телефон найближчим часом.
+        </p>
+        <div style="margin-top: var(--spacing-lg);">
+            <a href="index.html" class="btn btn-primary">Повернутися на головну</a>
         </div>
     </div>
 
     <script>
-        // Відкриття модального вікна з вибраним продуктом
-        function openPreorderModal(productType) {
-            const modal = document.getElementById('preorderModal');
-            const productTypeField = document.getElementById('productType');
-            const modalProductInfo = document.getElementById('modalProductInfo');
-            const formSubject = document.getElementById('formSubject');
-            
-            const products = {
-                meditation: {
-                    name: 'Глибока медитація (Шаматха)',
-                    event: 'preorder_shamattha'
-                },
-                stress: {
-                    name: 'Стрес і ментальна стійкість для дорослих',
-                    event: 'preorder_stress'
-                },
-                kids: {
-                    name: 'Ігрові тренування уваги для дітей',
-                    event: 'preorder_kids'
-                }
-            };
-            
-            const product = products[productType];
-            if (product) {
-                productTypeField.value = productType;
-                modalProductInfo.textContent = `Ви обираєте: ${product.name}`;
-                formSubject.value = `Передзамовлення: ${product.name}`;
-                
-                // Відправка події в Plausible
-                if (window.plausible) {
-                    window.plausible(product.event);
-                }
-            }
-            
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        // Отримуємо інформацію про продукт з URL параметрів (якщо є)
+        const urlParams = new URLSearchParams(window.location.search);
+        const productType = urlParams.get('product');
+        
+        const products = {
+            meditation: 'Глибока медитація (Шаматха)',
+            stress: 'Стрес і ментальна стійкість для дорослих',
+            kids: 'Ігрові тренування уваги для дітей'
+        };
+        
+        if (productType && products[productType]) {
+            const productInfo = document.getElementById('productInfo');
+            productInfo.textContent = `Ви обрали: ${products[productType]}. Коли будемо запускати пілотну програму, ми з вами зв'яжемося.`;
         }
-
-        // Закриття модального вікна
-        function closePreorderModal() {
-            const modal = document.getElementById('preorderModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-            document.getElementById('preorderForm').reset();
-            clearErrors();
-        }
-
-        // Закриття при кліку на overlay
-        document.getElementById('preorderModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePreorderModal();
-            }
-        });
-
-        // Валідація форми
-        function validateForm() {
-            let isValid = true;
-            clearErrors();
-            
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
-            
-            // Валідація імені
-            if (!name) {
-                showError('nameError', 'Будь ласка, введіть ваше ім\'я');
-                document.getElementById('name').classList.add('error');
-                isValid = false;
-            }
-            
-            // Валідація телефону
-            const phoneRegex = /^[\+]?[0-9]{10,15}$/;
-            if (!phone) {
-                showError('phoneError', 'Будь ласка, введіть номер телефону');
-                document.getElementById('phone').classList.add('error');
-                isValid = false;
-            } else if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
-                showError('phoneError', 'Будь ласка, введіть коректний номер телефону');
-                document.getElementById('phone').classList.add('error');
-                isValid = false;
-            }
-            
-            // Валідація email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email) {
-                showError('emailError', 'Будь ласка, введіть email');
-                document.getElementById('email').classList.add('error');
-                isValid = false;
-            } else if (!emailRegex.test(email)) {
-                showError('emailError', 'Будь ласка, введіть коректний email');
-                document.getElementById('email').classList.add('error');
-                isValid = false;
-            }
-            
-            return isValid;
-        }
-
-        function showError(errorId, message) {
-            const errorElement = document.getElementById(errorId);
-            errorElement.textContent = message;
-            errorElement.classList.add('show');
-        }
-
-        function clearErrors() {
-            document.querySelectorAll('.error-message').forEach(el => {
-                el.classList.remove('show');
-            });
-            document.querySelectorAll('.form-group input').forEach(el => {
-                el.classList.remove('error');
-            });
-        }
-
-        // Обробка відправки форми
-        function handlePreorderSubmit(event) {
-            event.preventDefault();
-            
-            if (!validateForm()) {
-                return;
-            }
-            
-            const form = event.target;
-            const formData = new FormData(form);
-            
-            // Перевірка honeypot
-            if (formData.get('_honeypot')) {
-                return; // Спам, ігноруємо
-            }
-            
-            // Відправка події в Plausible про успішний сабміт
-            const productType = formData.get('productType');
-            if (window.plausible) {
-                window.plausible('preorder_submit', {
-                    props: { product: productType }
-                });
-            }
-            
-            // Форма вже має action встановлений в HTML
-            // Якщо потрібно змінити email, відредагуйте атрибут action форми вище
-            // ЗАМІНИТЬ test@example.com на ваш реальний email в атрибуті action форми
-        }
-
-        // FAQ toggle
-        function toggleFaq(element) {
-            const answer = element.nextElementSibling;
-            const isActive = answer.classList.contains('active');
-            
-            // Закрити всі FAQ
-            document.querySelectorAll('.faq-answer').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.querySelectorAll('.faq-question span:last-child').forEach(item => {
-                item.textContent = '+';
-            });
-            
-            // Відкрити поточний
-            if (!isActive) {
-                answer.classList.add('active');
-                element.querySelector('span:last-child').textContent = '−';
-            }
-        }
-
-        // Smooth scroll для якорних посилань
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href !== '#!') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
     </script>
 </body>
 </html>
