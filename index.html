@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Передзамовлення EEG-гарнітури | Нейрофідбек</title>
     
-    <!-- Plausible Analytics -->
-    <script defer data-domain="meditate-eeg.github.io/pre-order" src="https://plausible.io/js/script.js"></script>
+    <!-- GoatCounter Analytics -->
+    <script data-goatcounter="https://pre-order.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
     
     <style>
         /* ===== RESET & BASE ===== */
@@ -673,7 +674,7 @@
             <button class="modal-close" onclick="closePreorderModal()">&times;</button>
             <h2>Передзамовлення</h2>
             <p style="margin-bottom: var(--spacing-md); color: var(--color-text-light);" id="modalProductInfo"></p>
-            <form id="preorderForm" action="https://formsubmit.co/test@example.com" method="POST" onsubmit="handlePreorderSubmit(event)">
+            <form id="preorderForm" action="https://formsubmit.co/meditate.eeg@gmail.com" method="POST" onsubmit="handlePreorderSubmit(event)">
                 <!-- Honeypot для захисту від спаму -->
                 <input type="text" name="_honeypot" class="honeypot" tabindex="-1" autocomplete="off">
                 
@@ -745,9 +746,12 @@
                 modalProductInfo.textContent = `Ви обираєте: ${product.name}`;
                 formSubject.value = `Передзамовлення: ${product.name}`;
                 
-                // Відправка події в Plausible
-                if (window.plausible) {
-                    window.plausible(product.event);
+                // Відправка події в GoatCounter
+                if (window.goatcounter) {
+                    window.goatcounter.count({
+                        path: product.event,
+                        event: true
+                    });
                 }
             }
             
@@ -845,17 +849,26 @@
                 return; // Спам, ігноруємо
             }
             
-            // Відправка події в Plausible про успішний сабміт
+            // Відправка події в GoatCounter про успішний сабміт
             const productType = formData.get('productType');
-            if (window.plausible) {
-                window.plausible('preorder_submit', {
-                    props: { product: productType }
+            if (window.goatcounter) {
+                window.goatcounter.count({
+                    path: 'preorder_submit',
+                    title: `Передзамовлення: ${productType}`,
+                    event: true
                 });
             }
             
-            // Форма вже має action встановлений в HTML
-            // Якщо потрібно змінити email, відредагуйте атрибут action форми вище
-            // ЗАМІНИТЬ test@example.com на ваш реальний email в атрибуті action форми
+            // Додаємо productType до URL сторінки подяки
+            const nextField = form.querySelector('input[name="_next"]');
+            if (productType && nextField) {
+                const nextUrl = new URL(nextField.value, window.location.origin);
+                nextUrl.searchParams.set('product', productType);
+                nextField.value = nextUrl.pathname + nextUrl.search;
+            }
+            
+            // Відправляємо форму на Formsubmit
+            form.submit();
         }
 
         // FAQ toggle
