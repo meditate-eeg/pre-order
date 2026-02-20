@@ -7,7 +7,8 @@
     
     <!-- GoatCounter Analytics -->
     <script data-goatcounter="https://pre-order.goatcounter.com/count"
-            async src="//gc.zgo.at/count.js"></script>
+            async src="//gc.zgo.at/count.js"
+            onerror="console.log('GoatCounter script failed to load')"></script>
     
     <style>
         /* ===== RESET & BASE ===== */
@@ -747,12 +748,16 @@
                 modalProductInfo.textContent = `Ви обираєте: ${product.name}`;
                 formSubject.value = `Передзамовлення: ${product.name}`;
                 
-                // Відправка події в GoatCounter
-                if (window.goatcounter) {
-                    window.goatcounter.count({
-                        path: product.event,
-                        event: true
-                    });
+                // Відправка події в GoatCounter (обгортаємо в try-catch)
+                try {
+                    if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+                        window.goatcounter.count({
+                            path: product.event,
+                            event: true
+                        });
+                    }
+                } catch (e) {
+                    console.log('GoatCounter error:', e);
                 }
             }
             
@@ -781,26 +786,36 @@
             let isValid = true;
             clearErrors();
             
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
+            const nameInput = document.getElementById('name');
+            const phoneInput = document.getElementById('phone');
+            const emailInput = document.getElementById('email');
+            
+            if (!nameInput || !phoneInput || !emailInput) {
+                console.error('Form fields not found');
+                return false;
+            }
+            
+            const name = nameInput.value.trim();
+            const phone = phoneInput.value.trim();
+            const email = emailInput.value.trim();
             
             // Валідація імені
             if (!name) {
                 showError('nameError', 'Будь ласка, введіть ваше ім\'я');
-                document.getElementById('name').classList.add('error');
+                nameInput.classList.add('error');
                 isValid = false;
             }
             
             // Валідація телефону
             const phoneRegex = /^[\+]?[0-9]{10,15}$/;
+            const cleanPhone = phone.replace(/\s/g, '');
             if (!phone) {
                 showError('phoneError', 'Будь ласка, введіть номер телефону');
-                document.getElementById('phone').classList.add('error');
+                phoneInput.classList.add('error');
                 isValid = false;
-            } else if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
+            } else if (!phoneRegex.test(cleanPhone)) {
                 showError('phoneError', 'Будь ласка, введіть коректний номер телефону');
-                document.getElementById('phone').classList.add('error');
+                phoneInput.classList.add('error');
                 isValid = false;
             }
             
@@ -808,11 +823,11 @@
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!email) {
                 showError('emailError', 'Будь ласка, введіть email');
-                document.getElementById('email').classList.add('error');
+                emailInput.classList.add('error');
                 isValid = false;
             } else if (!emailRegex.test(email)) {
                 showError('emailError', 'Будь ласка, введіть коректний email');
-                document.getElementById('email').classList.add('error');
+                emailInput.classList.add('error');
                 isValid = false;
             }
             
@@ -838,8 +853,14 @@
         function handlePreorderSubmit(event) {
             event.preventDefault();
             
+            // Валідація форми
             if (!validateForm()) {
-                return;
+                // Прокручуємо до першої помилки
+                const firstError = document.querySelector('.error-message.show');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return false;
             }
             
             const form = event.target;
@@ -847,29 +868,44 @@
             
             // Перевірка honeypot
             if (formData.get('_honeypot')) {
-                return; // Спам, ігноруємо
+                return false; // Спам, ігноруємо
             }
             
-            // Відправка події в GoatCounter про успішний сабміт
+            // Відправка події в GoatCounter про успішний сабміт (обгортаємо в try-catch)
             const productType = formData.get('productType');
-            if (window.goatcounter) {
-                window.goatcounter.count({
-                    path: 'preorder_submit',
-                    title: `Передзамовлення: ${productType}`,
-                    event: true
-                });
+            try {
+                if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+                    window.goatcounter.count({
+                        path: 'preorder_submit',
+                        title: `Передзамовлення: ${productType}`,
+                        event: true
+                    });
+                }
+            } catch (e) {
+                console.log('GoatCounter error:', e);
             }
             
             // Додаємо productType до URL сторінки подяки
-            const nextField = form.querySelector('input[name="_next"]');
-            if (productType && nextField) {
-                const nextUrl = new URL(nextField.value, window.location.origin);
-                nextUrl.searchParams.set('product', productType);
-                nextField.value = nextUrl.pathname + nextUrl.search;
+            try {
+                const nextField = form.querySelector('input[name="_next"]');
+                if (productType && nextField) {
+                    const nextUrl = new URL(nextField.value, window.location.origin);
+                    nextUrl.searchParams.set('product', productType);
+                    nextField.value = nextUrl.pathname + nextUrl.search;
+                }
+            } catch (e) {
+                console.log('URL error:', e);
             }
             
             // Відправляємо форму на Formsubmit
-            form.submit();
+            try {
+                form.submit();
+            } catch (e) {
+                console.error('Form submit error:', e);
+                alert('Помилка відправки форми. Спробуйте ще раз.');
+            }
+            
+            return false;
         }
 
         // FAQ toggle
