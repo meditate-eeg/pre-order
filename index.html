@@ -685,14 +685,14 @@
             <button class="modal-close" onclick="closePreorderModal()">&times;</button>
             <h2>Передзамовлення</h2>
             <p style="margin-bottom: var(--spacing-md); color: var(--color-text-light);" id="modalProductInfo"></p>
-            <form id="preorderForm" action="https://formsubmit.co/meditate.eeg@gmail.com" method="POST" onsubmit="handlePreorderSubmit(event)">
+            <form id="preorderForm" action="https://formsubmit.co/c1d72d56b4c84fba98998cdeb428e3f2" method="POST" onsubmit="handlePreorderSubmit(event)">
                 <!-- Honeypot для захисту від спаму -->
                 <input type="text" name="_honeypot" class="honeypot" tabindex="-1" autocomplete="off">
                 
                 <!-- Hidden поля для Formsubmit -->
                 <input type="hidden" name="_next" value="thanks.html">
                 <input type="hidden" name="_subject" id="formSubject" value="Передзамовлення">
-                <!-- _captcha видалено до активації форми -->
+                <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="productType" id="productType" value="">
                 
                 <div class="form-group">
