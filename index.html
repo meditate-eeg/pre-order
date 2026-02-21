@@ -692,7 +692,7 @@
                 <!-- Hidden поля для Formsubmit -->
                 <input type="hidden" name="_next" value="thanks.html">
                 <input type="hidden" name="_subject" id="formSubject" value="Передзамовлення">
-                <input type="hidden" name="_captcha" value="false">
+                <!-- _captcha видалено до активації форми -->
                 <input type="hidden" name="productType" id="productType" value="">
                 
                 <div class="form-group">
@@ -899,9 +899,12 @@
             try {
                 const nextField = form.querySelector('input[name="_next"]');
                 if (productType && nextField) {
-                    const nextUrl = new URL(nextField.value, window.location.origin);
+                    // Використовуємо поточну локацію для побудови повного URL
+                    // Якщо value просто "thanks.html", це спрацює коректно відносно поточної сторінки
+                    const nextUrl = new URL(nextField.value, window.location.href);
                     nextUrl.searchParams.set('product', productType);
-                    nextField.value = nextUrl.pathname + nextUrl.search;
+                    // Передаємо ПОВНИЙ URL (https://...) щоб уникнути помилок шляху
+                    nextField.value = nextUrl.href;
                 }
             } catch (e) {
                 console.log('URL error:', e);
