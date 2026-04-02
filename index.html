@@ -698,7 +698,8 @@
                         <div class="card-subitem">
                             <div>
                                 <h3>Fatigue</h3>
-                                <p>Even after a short rest, you're left with a sense of emptiness, exhaustion, and mental overload.</p>
+                                <p>Even after a short rest, you're left with a sense of emptiness, exhaustion, and
+                                    mental overload.</p>
                             </div>
                         </div>
                         <div class="card-subitem">
@@ -855,7 +856,8 @@
             <!-- CTA -->
             <section class="cta-form-block" id="waitlist">
                 <h2>Early supporters receive exclusive perks</h2>
-                <p>We are in the final launch phase.<br>Estimated headset price: $120.<br>Exclusive perks for early supporters:</p>
+                <p>We are in the final launch phase.<br>Estimated headset price: $120.<br>Exclusive perks for early
+                    supporters:</p>
                 <ul class="benefits-checklist">
                     <li><strong>40% discount, price $72</strong></li>
                     <li><strong>Delivery from the first batch</strong></li>
@@ -864,7 +866,8 @@
                 <form id="orderForm" action="https://formsubmit.co/c1d72d56b4c84fba98998cdeb428e3f2" method="POST"
                     onsubmit="handleOrderSubmit(event)">
                     <input type="text" name="_honeypot" class="honeypot" tabindex="-1" autocomplete="off">
-                    <input type="hidden" name="_next" value="thanks.html">
+                    <input type="hidden" name="_next" id="formNext" value="thanks.html">
+                    <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Pre-order — early access (pre-order)">
                     <input type="hidden" name="source" value="pre-order">
                     <input type="hidden" name="ip" id="formIp">
@@ -1006,6 +1009,12 @@
             if (phoneInput) phoneInput.value = sanitizeInput(phoneInput.value, 30);
 
             fillFormMetadata(form);
+
+            // Dynamically set absolute URL for _next to work with FormSubmit redirect
+            var currentUrl = window.location.origin + window.location.pathname;
+            var thanksUrl = currentUrl.replace('index.html', '').replace(/\/$/, '') + '/thanks.html';
+            var nextInput = form.querySelector('#formNext');
+            if (nextInput) nextInput.value = thanksUrl;
             try {
                 if (window.goatcounter && typeof window.goatcounter.count === 'function') {
                     window.goatcounter.count({ path: 'preorder_modal_submit_st', event: true });
