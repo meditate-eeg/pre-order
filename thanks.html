@@ -1,25 +1,32 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дякуємо за передзамовлення | Нейрофідбек</title>
-    
-    <!-- GoatCounter Analytics (завантажується динамічно, щоб уникнути помилок від adblocker) -->
-    <script>
-        // Завантажуємо GoatCounter тільки якщо не заблокований
-        (function() {
-            var script = document.createElement('script');
-            script.async = true;
-            script.src = '//gc.zgo.at/count.js';
-            script.setAttribute('data-goatcounter', 'https://pre-order.goatcounter.com/count');
-            script.onerror = function() {
-                // Тихо ігноруємо помилку завантаження (adblocker)
-            };
-            document.head.appendChild(script);
-        })();
-    </script>
-    
+    <title>Thank You! | EEG Headset</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <!-- Meta Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '806591755240494');
+            fbq('track', 'PageView');
+            fbq('track', 'Lead');
+            </script>
+            <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=806591755240494&ev=PageView&noscript=1"
+            /></noscript>
+        <!-- End Meta Pixel Code -->
     <style>
         * {
             margin: 0;
@@ -27,160 +34,72 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --color-primary: #008080;
-            --color-primary-light: #00A0A0;
-            --color-cta: #FF6B6B;
-            --color-text: #2C3E50;
-            --color-text-light: #5a6c7d;
-            --color-white: #FFFFFF;
-            --spacing-md: 1.25rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            --border-radius: 12px;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            color: var(--color-text);
-            line-height: 1.7;
-            background: linear-gradient(160deg, #006666 0%, #008080 30%, #00B8B8 60%, #b8e8e8 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+            background-color: #26282b;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: var(--spacing-md);
-        }
-
-        .thanks-container {
-            background-color: var(--color-white);
-            padding: var(--spacing-xl);
-            border-radius: var(--border-radius);
-            max-width: 600px;
-            width: 100%;
             text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
         }
 
-        .thanks-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto var(--spacing-lg);
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-white);
-            font-size: 2.5rem;
+        .container {
+            max-width: 500px;
+            background: linear-gradient(0deg, #26282b, #32373c);
+            padding: 3rem;
+            border-radius: 50px;
+            border: 2px solid #4a5058;
+            box-shadow: 15px 25px 80px 8px #191b1e;
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: #e1b518;
         }
 
         h1 {
+            font-family: 'Outfit', sans-serif;
             font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text);
+            margin-bottom: 1rem;
+            color: #ffffff;
         }
 
         p {
-            color: var(--color-text-light);
-            font-size: 1.05rem;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .product-info {
-            background-color: #F8F9FA;
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            margin: var(--spacing-lg) 0;
-            font-weight: 600;
-            color: var(--color-text);
+            color: #b8b8b8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
 
         .btn {
             display: inline-block;
-            padding: 0.875rem 1.75rem;
-            border-radius: var(--border-radius);
-            font-weight: 600;
+            padding: 1rem 2rem;
+            background: #e1b518;
+            color: #26282b;
             text-decoration: none;
+            border-radius: 16px;
+            font-weight: 700;
             transition: all 0.25s ease;
-            border: none;
+            border: 2px solid #4a5058;
             cursor: pointer;
             font-size: 1rem;
-            margin-top: var(--spacing-md);
         }
 
-        .btn-primary {
-            background-color: var(--color-cta);
-            color: var(--color-white);
-        }
-
-        .btn-primary:hover {
-            background-color: #FF5252;
+        .btn:hover {
+            background: #ac8710;
             transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-            margin-left: var(--spacing-md);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.75rem;
-            }
-
-            .thanks-container {
-                padding: var(--spacing-lg);
-            }
-
-            .btn {
-                display: block;
-                width: 100%;
-                margin-left: 0;
-                margin-top: var(--spacing-sm);
-            }
         }
     </style>
 </head>
 <body>
-    <div class="thanks-container">
-        <div class="thanks-icon">✓</div>
-        <h1>Дякуємо за передзамовлення!</h1>
-        <p>Ви в списку раннього доступу.</p>
-        <div class="product-info" id="productInfo">
-            Коли будемо запускати пілотну програму, ми з вами зв'яжемося.
-        </div>
-        <p style="font-size: 0.95rem; color: var(--color-text-light);">
-            Ми надішлемо вам деталі на вказаний email або телефон найближчим часом.
-        </p>
-        <div style="margin-top: var(--spacing-lg);">
-            <a href="index.html" class="btn btn-primary">Повернутися на головну</a>
-        </div>
+    <div class="container">
+        <div class="icon">✨</div>
+        <h1>Thank You!</h1>
+        <p>Your pre-order has been received. We will contact you as soon as the headset is ready for shipping.</p>
+        <a href="index.html" class="btn">Return to Home</a>
     </div>
-
-    <script>
-        // Отримуємо інформацію про продукт з URL параметрів (якщо є)
-        const urlParams = new URLSearchParams(window.location.search);
-        const productType = urlParams.get('product');
-        
-        const products = {
-            meditation: 'Глибока медитація (Шаматха)',
-            stress: 'Стрес і ментальна стійкість для дорослих',
-            kids: 'Ігрові тренування уваги для дітей'
-        };
-        
-        if (productType && products[productType]) {
-            const productInfo = document.getElementById('productInfo');
-            productInfo.textContent = `Ви обрали: ${products[productType]}. Коли будемо запускати пілотну програму, ми з вами зв'яжемося.`;
-        }
-    </script>
 </body>
 </html>
